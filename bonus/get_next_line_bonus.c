@@ -16,24 +16,23 @@ char	*get_next_line(int fd)
 	char	buffer[512][10960];
 	char	*line;
 	ssize_t	bytes_read;
-	ssize_t	i;
 
-	i = 0;
 	line = NULL;
-	bytes_read = 1;
-	if (fd == -1 || read(fd, &buffer[0][0], 0) == -1 || BUFFER_SIZE < 1)
+	bytes_read = 0;
+	if (fd == -1 || read(fd, &buffer[0][0], 0) == -1 || BUFFER_SIZE == 0)
 		return (NULL);
-	while (read(fd, &buffer[fd][i], 1) > 0 && buffer[fd][i++] != '\n')
-		bytes_read = 1;
-	if (i == 0)
+	while (read(fd, &buffer[fd][bytes_read], 1) > 0 && \
+											buffer[fd][bytes_read++] != '\n')
+		;
+	if (bytes_read == 0)
 		return (NULL);
-	line = (char *)malloc(sizeof(char) * (i + 1));
+	line = (char *)malloc(sizeof(char) * (bytes_read + 1));
 	if (!line)
 		return (NULL);
-	line[i] = '\0';
-	while (--i > -1)
+	line[bytes_read] = '\0';
+	while (--bytes_read > -1)
 	{
-		line[i] = buffer[fd][i];
+		line[bytes_read] = buffer[fd][bytes_read];
 	}
 	return (line);
 }

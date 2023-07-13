@@ -1,8 +1,8 @@
 ################################	MAKEFILE	################################
 
-NAME			= get_next_line
+NAME			= get_next_line_bonus
 
-CC				= gcc -Wall -Wextra -Werror -g -o
+CC				= gcc -Wall -Wextra -Werror -o
 AR				= ar rcsv
 
 all: ../$(NAME)

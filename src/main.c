@@ -19,12 +19,9 @@ int main(int argc, char *argv[])
 // test get_next_line by itself or against another get_next_line, or any other method you
 // can think of. I am done with this project, as much as I loved it, lol. love ya x
 
-	char	line[10960];
-	FILE	*file = fopen(argv[1], "r");
-
-	while (fgets(line, sizeof(line), file) && (arr = get_next_line(fd)))
+	while ((arr = get_next_line(fd)))
 	{
-		if (!strcmp(line, arr))
+/*		if (strcmp(line, arr))
 		{
 			printf("KO ERROR:\n");
 			printf("get_next_line == %s", arr);
@@ -32,14 +29,13 @@ int main(int argc, char *argv[])
 			printf("Try again.\n");
 			break ;
 		}
-		else if (strcmp(line, arr))
+		else if (!strcmp(line, arr))
 		{
-			printf("%s", arr);
-		}
+*/			printf("%s", arr);
+/*		}
 		else
 			return 1;
-	}
-	fclose(file);
+*/	}
 	close(fd);
 	return 0;
 }

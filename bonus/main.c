@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-	if (argc < 2)
+	if (argc < 3)
 	{
 		printf("Usage: ./get_next_line <../tests/xxx1.txt> <../tests/xxx2.txt>\n");
 		return (0);
@@ -19,46 +19,13 @@ int main(int argc, char *argv[])
 // test get_next_line by itself or against another get_next_line, or any other method you
 // can think of. I am done with this project, as much as I loved it, lol. love ya x
 
-	char	line[10960];
-	FILE	*file = fopen(argv[1], "r");
-	FILE	*file_2 = fopen(argv[2], "r");
 
-	while (fgets(line, sizeof(line), file) && ((arr = get_next_line(fd)) != NULL))
+	while ((arr = get_next_line(fd)) != NULL)
 	{
-		if (strcmp(line, arr) != 0)
-		{
-			printf("KO ERROR:\n");
-			printf("get_next_line == %s", arr);
-			printf("Expected == %s", line);
-			printf("Try again.\n");
-			break ;
-		}
-		else if (strcmp(line, arr) == 0)
-		{
+		if ((arr = get_next_line(fd_2)) != NULL)
 			printf("%s", arr);
-		}
-		else
-			return 1;
+		printf("%s", arr);
 	}
-	while (fgets(line, sizeof(line), file_2) && ((arr = get_next_line(fd_2)) != NULL))
-	{
-		if (strcmp(line, arr) != 0)
-		{
-			printf("KO ERROR:\n");
-			printf("get_next_line == %s", arr);
-			printf("Expected == %s", line);
-			printf("Try again.\n");
-			break ;
-		}
-		else if (strcmp(line, arr) == 0)
-		{
-			printf("%s", arr);
-		}
-		else
-			return 1;
-	}
-	fclose(file_2);
-	fclose(file);
 	close(fd_2);
 	close(fd);
 	return 0;

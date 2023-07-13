@@ -13,7 +13,7 @@
 
 char	*get_next_line(int fd)
 {
-	char	buffer[4096][10960];
+	char	buffer[512][10960];
 	char	*line;
 	ssize_t	bytes_read;
 	ssize_t	i;

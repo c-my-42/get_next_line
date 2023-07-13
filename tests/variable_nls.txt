@@ -1,0 +1,10 @@
+abcdefghijklmnopqrstuvwxyz	1
+
+abcdefghijklmnopqrstuvwxyz	3
+
+abcdefghijklmnopqrstuvwxyz	5
+
+
+abcdefghijklmnopqrstuvwxyz	8
+
+10X

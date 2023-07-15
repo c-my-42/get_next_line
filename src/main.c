@@ -17,25 +17,14 @@ int main(int argc, char *argv[])
 // don't try to read the long line tests, stack smashing should be detected. This is just
 // to test that get_next_line works. To test large lines, either malloc char [line], or
 // test get_next_line by itself or against another get_next_line, or any other method you
-// can think of. I am done with this project, as much as I loved it, lol. love ya x
+// can think of. I am DONE here, as much as I loved the shit out it. pshhhhhh. love ya x
 
 	while ((arr = get_next_line(fd)))
 	{
-/*		if (strcmp(line, arr))
-		{
-			printf("KO ERROR:\n");
-			printf("get_next_line == %s", arr);
-			printf("Expected == %s", line);
-			printf("Try again.\n");
-			break ;
-		}
-		else if (!strcmp(line, arr))
-		{
-*/			printf("%s", arr);
-/*		}
-		else
-			return 1;
-*/	}
+		printf("%s", arr);
+	}
+	else
+		return 1;
 	close(fd);
 	return 0;
 }

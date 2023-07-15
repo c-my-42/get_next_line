@@ -18,7 +18,6 @@ char	*get_next_line(int fd)
 	ssize_t	bytes_read;
 
 	bytes_read = 0;
-	line = NULL;
 	if (fd == -1 || read(fd, &buffer[0], 0) == -1 || BUFFER_SIZE == 0)
 		return (NULL);
 	while (read(fd, &buffer[bytes_read], 1) > 0 && buffer[bytes_read++] != '\n')
